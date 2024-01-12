@@ -1,0 +1,93 @@
+---
+interface priceProps {
+  name: string;
+  price: number;
+  options: string[];
+}
+
+const prices: Array<priceProps> = [
+  {
+    name: "Administrador y Contador",
+    price: 45,
+    options: ["Upto 50 hours Monthly", "2 Assistants available"],
+  },
+  {
+    name: "Equipo de Mantenimiento",
+    price: 79,
+    options: ["Upto 50 hours Monthly", "2 Assistants available"],
+  },
+  {
+    name: "Equipo de Limpieza",
+    price: 109,
+    options: [
+      "Upto 50 hours Monthly",
+      "2 Assistants available",
+      "others available",
+    ],
+  },
+];
+---
+
+<section
+  id="Precios"
+  class="flex justify-center bg-[#e8f1ff] px-0 py-10 relative w-full z-0"
+>
+  <div class="max-w-screen-xl mx-8 items-center justify-between">
+    <h4
+      class="text-sm mb-1 font-semibold block uppercase text-blue-500 leading-relaxed text-center"
+    >
+      PRICE & PLANS
+    </h4>
+    <h2
+      class="mb-6 font-semibold text-3xl text-black/80 leading-tight text-center"
+    >
+      Affordable Packages
+    </h2>
+
+    <div class="grid xs:grid-rows-3 md:grid-cols-3 gap-8 mt-4">
+      {
+        prices.map((price) => (
+          <div class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow text-center">
+            <span>
+              <sup class="font-inter text-2xl text-gray-400 relative -top-4">
+                $
+              </sup>
+              <span class="font-inter text-6xl text-blue-600 font-semibold">
+                {price.price}
+              </span>
+              <sub class="-bottom-1">/mo</sub>
+              <span class="mb-5 text-black text-lg font-bold border-b-2 pt-3 pb-2 block">
+                {price.name}
+              </span>
+              <ul class="mb-8">
+                {price.options.map((option) => (
+                  <li class="flex items-center">
+                    <svg
+                      class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                    </svg>
+                    <span class="text-base font-normal leading-tight text-gray-500 dark:text-gray-400 ms-3">
+                      {option}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <a
+                type="button"
+                class="text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2 mt-4 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 uppercase"
+                href="/"
+              >
+                get started
+              </a>
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

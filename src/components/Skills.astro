@@ -1,0 +1,50 @@
+---
+interface skillProps {
+  name: string;
+  description: string;
+  icon: string;
+}
+
+const skills: Array<skillProps> = [
+  {
+    name: "Administrador y Contador",
+    description: "WEB DEVELOPER",
+    icon: "flaticon-ux",
+  },
+  {
+    name: "Equipo de Mantenimiento",
+    description:
+      "Sistema hidraulico, impermeabilización, electrico, pintura, entre otros.",
+    icon: "flaticon-web-programming",
+  },
+  {
+    name: "Equipo de Limpieza",
+    description: "WEB DEVELOPER",
+    icon: "flaticon-branding",
+  },
+  {
+    name: "Equipo de Limpieza",
+    description: "WEB DEVELOPER",
+    icon: "flaticon-stats",
+  },
+];
+---
+
+<section
+  id="Servicios"
+  class="flex justify-center bg-[#e8f1ff] px-0 pt-16 relative w-full z-30"
+>
+  <div class="max-w-screen-xl mx-8 items-center justify-between">
+    <div class="grid xs:grid-rows-4 md:grid-cols-2 lg:grid-cols-4 gap-8 -mb-10">
+      {
+        skills.map((skill) => (
+          <div class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow text-center">
+            <span class=`font-flaticon ${skill.icon} text-6xl text-blue-500`></span>
+            <h5 class="mt-4 mb-4 text-xl text-black/80 leading-tight dark:text-white">{skill.name}</h5>
+            <p class="text-gray-400 font-medium text-base leading-normal">{skill.description}</p>
+        </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

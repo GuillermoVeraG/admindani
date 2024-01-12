@@ -1,0 +1,72 @@
+---
+import Accordion from "@/components/Accordion.astro";
+import AccordionItem from "@/components/AccordionItem.astro";
+
+interface questionProps {
+  question: string;
+  answer: string;
+}
+
+const questions: Array<questionProps> = [
+  {
+    question: "What is Flowbite?",
+    answer: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Architecto quasi nobis optio? Qui in quo accusantium debitis
+              sapiente obcaecati magnam incidunt sit. Molestiae exercitationem
+              quibusdam quod veritatis laboriosam est tenetur.`,
+  },
+  {
+    question: "What is Flowbite?",
+    answer: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Architecto quasi nobis optio? Qui in quo accusantium debitis
+              sapiente obcaecati magnam incidunt sit. Molestiae exercitationem
+              quibusdam quod veritatis laboriosam est tenetur.`,
+  },
+  {
+    question: "What is Flowbite?",
+    answer: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Architecto quasi nobis optio? Qui in quo accusantium debitis
+              sapiente obcaecati magnam incidunt sit. Molestiae exercitationem
+              quibusdam quod veritatis laboriosam est tenetur.`,
+  },
+];
+---
+
+<section
+  id="Preguntas"
+  class="flex justify-center bg-white px-0 py-20 relative w-full z-0"
+>
+  <div class="max-w-screen-xl mx-8 items-center justify-between">
+    <div class="flex flex-col md:grid md:grid-cols-2 gap-8">
+      <div class="pt-2 lg:pt-10 lg:pl-10 md:-mt-10">
+        <div
+          class="bg-[url('/images/about-2.webp')]
+          h-full min-h-[350px] xs:max-h-[400px] md:h-full w-full
+          bg-cover bg-no-repeat bg-center
+          self-stretch items-center"
+        >
+        </div>
+      </div>
+      <div class="pt-2 lg:pt-10">
+        <h4
+          class="text-sm mb-1 font-semibold block uppercase text-blue-500 leading-relaxed"
+        >
+          FREEQUESNTLY ASK QUESTION
+        </h4>
+        <h2 class="mb-6 font-semibold text-3xl text-black/80 leading-tight">
+          Frequently Ask Question
+        </h2>
+
+        <Accordion>
+          {
+            questions.map((question) => (
+              <AccordionItem header={question.question}>
+                <p class="font-inter text-gray-800">{question.answer}</p>
+              </AccordionItem>
+            ))
+          }
+        </Accordion>
+      </div>
+    </div>
+  </div>
+</section>
