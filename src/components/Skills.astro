@@ -1,48 +1,65 @@
 ---
+import SkillsItem from "./SkillsItem.astro";
 interface skillProps {
   name: string;
-  description: string;
+  descriptions: string[];
   icon: string;
 }
 
 const skills: Array<skillProps> = [
   {
-    name: "Administrador y Contador",
-    description: "WEB DEVELOPER",
-    icon: "flaticon-ux",
+    name: "Ejecución y Rendición de reportes con informes mensuales",
+    descriptions: [
+      "Cobro y recaudos de cuotas ordinarias y extraordinarias, multas y morosidad.",
+      "Estados financieros.",
+      "Supervisión de limpieza y mantenimientos preventivos y correctivos de zonas comunes.",
+    ],
+    icon: "/images/icons/reports.svg",
   },
   {
-    name: "Equipo de Mantenimiento",
-    description:
-      "Sistema hidraulico, impermeabilización, electrico, pintura, entre otros.",
-    icon: "flaticon-web-programming",
+    name: "Supervisión y Coordinación",
+    descriptions: [
+      "Fumigación.",
+      "Limpieza de la piscina.",
+      "Mantenimientos, reparaciones y Limpieza de las zonas comunes.",
+      "Servicios de jardinería.",
+      "Mantenimientos y reparaciones de ascensores.",
+    ],
+    icon: "/images/icons/test.svg",
   },
   {
-    name: "Equipo de Limpieza",
-    description: "WEB DEVELOPER",
-    icon: "flaticon-branding",
+    name: "Supervisión y Reparación de daños menores / mayores en zonas comunes",
+    descriptions: [
+      "Electricidad, plomería, gas natural, cerrajería, sistema hidráulico, desagües, pintura, impermeabilización de fachadas, reparación de humedades, filtraciones, trabajos en alturas, entre otros más.",
+    ],
+    icon: "/images/icons/repair.svg",
   },
   {
-    name: "Equipo de Limpieza",
-    description: "WEB DEVELOPER",
-    icon: "flaticon-stats",
+    name: "Programa Contable y Administrativo",
+    descriptions: [
+      "Cuenta con los estándares más altos de calidad, siendo el único sistema de gestión de conjuntos inmobiliarios y PH certificados por normas internacionales de calidad ISO 9001.",
+    ],
+    icon: "/images/icons/mobile.svg",
   },
 ];
 ---
 
 <section
   id="Servicios"
-  class="flex justify-center bg-[#e8f1ff] px-0 pt-16 relative w-full z-30"
+  class="flex justify-center bg-secondary-950 dark:bg-secondary-900 px-0 pb-16 relative w-full z-30 group"
 >
-  <div class="max-w-screen-xl mx-8 items-center justify-between">
-    <div class="grid xs:grid-rows-4 md:grid-cols-2 lg:grid-cols-4 gap-8 -mb-10">
+  <div
+    class="transition-opacity opacity-0 group-[.scrollIsIn]:opacity-100 max-w-screen-xl mx-8 items-center justify-between"
+  >
+    <div class="grid xs:grid-rows-4 md:grid-cols-2 lg:grid-cols-4 gap-8 -mt-10">
       {
-        skills.map((skill) => (
-          <div class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow text-center">
-            <span class=`font-flaticon ${skill.icon} text-6xl text-blue-500`></span>
-            <h5 class="mt-4 mb-4 text-xl text-black/80 leading-tight dark:text-white">{skill.name}</h5>
-            <p class="text-gray-400 font-medium text-base leading-normal">{skill.description}</p>
-        </div>
+        skills.map((skill, index) => (
+          <SkillsItem
+            icon={skill.icon}
+            name={skill.name}
+            descriptions={skill.descriptions}
+            delay={index * 200}
+          />
         ))
       }
     </div>

@@ -23,6 +23,7 @@ const prices: Array<priceProps> = [
       "Upto 50 hours Monthly",
       "2 Assistants available",
       "others available",
+      "others available",
     ],
   },
 ];
@@ -30,40 +31,42 @@ const prices: Array<priceProps> = [
 
 <section
   id="Precios"
-  class="flex justify-center bg-[#e8f1ff] px-0 py-10 relative w-full z-0"
+  class="flex justify-center bg-primary-50 px-0 py-10 relative w-full z-0 group"
 >
-  <div class="max-w-screen-xl mx-8 items-center justify-between">
+  <div
+    class="transition-opacity opacity-0 group-[.scrollIsIn]:opacity-100 max-w-screen-xl mx-8 items-center justify-between"
+  >
     <h4
-      class="text-sm mb-1 font-semibold block uppercase text-blue-500 leading-relaxed text-center"
+      class="text-sm mb-1 font-semibold block uppercase text-primary-500 leading-relaxed text-center"
     >
-      PRICE & PLANS
+      planes & precios
     </h4>
     <h2
       class="mb-6 font-semibold text-3xl text-black/80 leading-tight text-center"
     >
-      Affordable Packages
+      Nuestros mejores ofertas
     </h2>
 
     <div class="grid xs:grid-rows-3 md:grid-cols-3 gap-8 mt-4">
       {
         prices.map((price) => (
-          <div class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow text-center">
+          <div class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow text-center relative">
             <span>
               <sup class="font-inter text-2xl text-gray-400 relative -top-4">
                 $
               </sup>
-              <span class="font-inter text-6xl text-blue-600 font-semibold">
+              <span class="font-inter text-6xl text-primary-600 font-semibold">
                 {price.price}
               </span>
               <sub class="-bottom-1">/mo</sub>
               <span class="mb-5 text-black text-lg font-bold border-b-2 pt-3 pb-2 block">
                 {price.name}
               </span>
-              <ul class="mb-8">
+              <ul class="mb-20">
                 {price.options.map((option) => (
                   <li class="flex items-center">
                     <svg
-                      class="flex-shrink-0 w-4 h-4 text-blue-600 dark:text-blue-500"
+                      class="flex-shrink-0 w-4 h-4 text-primary-600 dark:text-primary-500"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
@@ -77,14 +80,14 @@ const prices: Array<priceProps> = [
                   </li>
                 ))}
               </ul>
-              <a
-                type="button"
-                class="text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2 mt-4 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 uppercase"
-                href="/"
-              >
-                get started
-              </a>
             </span>
+            <a
+              type="button"
+              class="absolute bottom-0 left-3 w-[90%] text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-4 focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center mb-2 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 uppercase"
+              href="/"
+            >
+              get started
+            </a>
           </div>
         ))
       }

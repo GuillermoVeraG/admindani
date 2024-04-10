@@ -1,28 +1,42 @@
 ---
-const { name, description, image } = Astro.props;
+const { name, description, image, delay } = Astro.props;
 ---
 
 <div
-  class="group w-full max-w-[450px] bg-[#1D2736] rounded-lg shadow hover:bg-white"
+  class="group/team w-full max-w-[450px] bg-secondary-950 rounded-lg shadow hover:bg-white dark:hover:bg-secondary-600 transition
+  group-[.scrollIsIn]:animate-slide-in-right"
+  style=`animation-delay: ${delay}ms`
 >
   <div
     class="flex justify-center items-start
         rounded-t-lg
         overflow-hidden
         h-60
-        bg-black/50"
+        relative"
   >
-    <img src={image} />
+    <img
+      class="object-cover w-full h-full group-hover/team:scale-105 transition duration-300"
+      src={image}
+    />
+    <div
+      class="flex w-full h-full bg-secondary-800/40 absolute left-0 top-0 items-center justify-center -translate-y-1/4 transition duration-500 opacity-0
+      before:content-[''] before:w-8 before:h-[2px] before:bg-white before:block before:absolute before:top-1/2 before:left-1/2 before:-translate-y-1/2 before:-translate-x-1/2 before:scale-75
+      after:content-[''] after:w-8 after:h-[2px] after:bg-white after:block after:absolute after:top-1/2 after:left-1/2 after:-translate-y-1/2 after:-translate-x-1/2 after:scale-75 after:rotate-90
+      group-hover/team:translate-y-0 group-hover/team:opacity-100"
+    >
+    </div>
   </div>
   <div class="p-5">
     <a href="#">
       <h5
-        class="mb-2 text-2xl font-bold tracking-tight group-hover:text-black text-white"
+        class="mb-2 text-2xl font-bold tracking-tight group-hover/team:text-black text-white"
       >
         {name}
       </h5>
     </a>
-    <p class="mb-3 font-normal group-hover:text-gray-700 text-gray-400">
+    <p
+      class="mb-3 font-normal group-hover/team:text-gray-700 group-hover/team:dark:text-black/80 text-gray-200/60 text-pretty"
+    >
       {description}
     </p>
   </div>

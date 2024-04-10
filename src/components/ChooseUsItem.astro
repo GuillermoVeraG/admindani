@@ -1,0 +1,29 @@
+---
+interface chooseProps {
+  name: string;
+  description: string;
+  icon: string;
+  delay: number;
+}
+const { icon, name, description, delay } = Astro.props as chooseProps;
+---
+
+<div
+  class=` w-full p-6 bg-white rounded-xl shadow-lg md:shadow-none border-2 border-primary-200 md:border-0  my-8 md:m-0 md:bg-transparent flex flex-col lg:flex-row justify-start items-center
+             group-[.scrollIsIn]:animate-slide-in-right`
+  style=`animation-delay: ${delay}ms`
+>
+  <img class="size-3/4 md:size-32 mr-5" src={icon} />
+  <div>
+    <h5
+      class="text-xl text-black/80 font-semibold leading-tight dark:text-white mt-6 md:mt-0 text-center md:text-left"
+    >
+      {name}
+    </h5>
+    <p
+      class="text-gray-400 dark:text-white/50 font-medium text-base leading-normal"
+    >
+      {description}
+    </p>
+  </div>
+</div>

@@ -8,19 +8,21 @@ interface teamProps {
 
 const team: Array<teamProps> = [
   {
-    name: "Administrador y Contador",
-    description: "WEB DEVELOPER",
+    name: "Equipo Administrativo",
+    description:
+      "Contamos con un Software que simplifica la gestión y comunicaciones, permite llevar un control de mantenimientos, seguros, gestionar reservas de las zonas comunes, manejar actas y documentos de la copropiedad, citofonía virtual, asambleas, votaciones y PQRS.",
     image: "/images/staff-1.webp",
+  },
+  {
+    name: "Equipo Contable",
+    description:
+      "Contamos con un programa contable desarrollado especialmente para Propiedades Horizontales, donde se podrán llevar asientos y reportes contables, balances de prueba, estados de situación financiera, estado de resultados, un control de movimientos de fondos y saldos por cuentas, entre muchas cosas más.",
+    image: "/images/staff-2.webp",
   },
   {
     name: "Equipo de Mantenimiento",
     description:
-      "Sistema hidraulico, impermeabilización, electrico, pintura, entre otros.",
-    image: "/images/staff-2.webp",
-  },
-  {
-    name: "Equipo de Limpieza",
-    description: "WEB DEVELOPER",
+      "Prestamos un servicio de personal de aseo y de mantenimiento y reparación responsable, seguro y altamente capacitado, para el funcionamiento de zonas comunes de redes eléctricas, hidráulicas, pintura, plomería, gas natural, cerrajería, impermeabilización de fachadas, trabajos en alturas, mantenimiento de jardines, piscinas, zonas verdes y más.",
     image: "/images/staff-3.webp",
   },
 ];
@@ -28,40 +30,38 @@ const team: Array<teamProps> = [
 
 <section
   id="Equipo"
-  class="flex justify-center bg-[#141B25] px-0 py-20 relative w-full z-0"
+  class="flex justify-center bg-secondary-950 dark:bg-secondary-900 px-0 py-20 relative w-full z-0 group"
 >
-  <div class="max-w-screen-xl mx-8 items-center justify-between">
+  <div
+    class="transition-opacity opacity-0 group-[.scrollIsIn]:opacity-100 max-w-screen-xl mx-8 items-center justify-between"
+  >
     <div class="grid xs:grid-rows-4 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div
-        class="flex flex-col justify-end pt-2 md:pt-10 p-10 w-full max-w-[450px]"
-      >
+      <div class="flex flex-col pt-2 md:pt-10 p-10 w-full max-w-[450px]">
         <h4
-          class="text-sm mb-1 font-semibold block uppercase text-white/70 leading-relaxed"
+          class="text-sm mb-1 font-semibold block uppercase text-primary-500 leading-relaxed"
         >
-          Team & Staff
+          Equipo & Personal
         </h4>
-        <h2 class="mb-6 font-semibold text-3xl text-white leading-tight">
-          Our Team
+        <h2 class="mb-6 font-semibold text-2xl text-white leading-tight">
+          Nuestro Equipo de Trabajo
         </h2>
-        <p class="text-gray-400 font-medium text-base leading-normal">
-          A small river named Duden flows by their place and supplies it with
-          the necessary regelialia. It is a paradisematic country
-        </p>
-
-        <a
-          type="button"
-          class="text-white bg-blue-500 hover:bg-blue-600 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2 mt-4 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 uppercase"
-          href="/"
+        <p
+          class="text-gray-400 font-medium text-base leading-normal text-pretty"
         >
-          View all staff
-        </a>
+          Velamos por la conservación de la propiedad horizontal, nos destacamos
+          de otras empresas porque disponemos de un grandioso personal,
+          altamente capacitado, responsable, honesto y siempre dispuesto a dar
+          lo mejor.
+        </p>
+        <img class="mt-12 size-38 mx-auto" src="/images/icons/team1.svg" />
       </div>
       {
-        team.map((teamItem) => (
+        team.map((teamItem, index) => (
           <TeamItem
             name={teamItem.name}
             description={teamItem.description}
             image={teamItem.image}
+            delay={index * 200}
           />
         ))
       }

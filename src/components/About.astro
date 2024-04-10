@@ -1,8 +1,10 @@
 <section
   id="Yo"
-  class="flex justify-center bg-white px-0 py-0 pb-28 relative w-full z-0"
+  class="flex justify-center bg-white dark:bg-secondary-950 px-0 py-0 pb-28 relative w-full z-0 group"
 >
-  <div class="max-w-screen-xl mx-8 items-center justify-between">
+  <div
+    class="transition-opacity opacity-0 group-[.scrollIsIn]:opacity-100 max-w-screen-xl mx-8 items-center justify-between"
+  >
     <div class="flex flex-col md:grid md:grid-cols-2 gap-8">
       <div class="relative h-[400px] md:h-full">
         <div
@@ -14,13 +16,14 @@
             self-stretch items-center"
         >
           <div
-            class="flex flex-col items-center bg-primary-600 absolute top-8 md:top-[6rem] -left-1 p-4 max-w-[100px]"
+            class="flex flex-col items-center bg-primary-600 absolute top-8 md:top-[6rem] -left-1 p-4 max-w-[100px]
+            group-[.scrollIsIn]:animate-slide-in-left"
           >
-            <div class="w-10 h-8">
-              <span
-                class="font-flaticon flaticon-light-bulb text-white text-3xl pl-1"
-              ></span>
-            </div>
+            <img
+              alt="experience"
+              class="h-12 invert"
+              src="/images/experience.webp"
+            />
             <div class="flex flex-col items-center">
               <strong class="mb-1 text-2xl font-semibold text-white">+5</strong>
               <span
@@ -36,7 +39,9 @@
                 w-3/5 h-3/5
                 absolute bottom-0 right-0
                 bg-cover bg-no-repeat bg-center
-                self-stretch items-center"
+                self-stretch items-center
+                group-[.scrollIsIn]:animate-slide-in-left
+                group-[.scrollIsIn]:animate-delay-600"
           >
           </div>
         </div>
@@ -47,46 +52,66 @@
         >
           Daniela Ramirez
         </h4>
-        <h2 class="mb-6 font-semibold text-3xl text-black/80 leading-tight">
+        <h2
+          class="mb-6 font-semibold text-3xl text-black/80 dark:text-white/80 leading-tight"
+        >
           Administradora de Propiedades Horizontales
         </h2>
-        <p class="text-gray-400 font-medium text-base leading-normal">
-          Far far away, behind the word mountains, far from the countries
-          Vokalia and Consonantia, there live the blind texts. Separated they
-          live in Bookmarksgrove right at the coast of the Semantics, a large
-          language ocean. A small river named Duden flows by their place and
-          supplies it with the necessary regelialia.
+        <p
+          class="text-gray-400 font-medium text-base leading-normal text-pretty"
+        >
+          Como administradora seria el ente conector y mediador entre los
+          propietarios, los residentes y la propiedad horizontal; siendo la
+          representante legal de la persona jurídica. Mis servicios y funciones
+          se basan en lo que dispone la Ley 675 del 2001 y el reglamento de
+          propiedad horizontal.
+        </p>
+        <p
+          class="text-gray-400 font-medium text-base leading-normal pt-4 text-pretty"
+        >
+          Como administradora busco la ejecución, representación, recaudo de
+          cuotas y la conservación, cuidado, resguardo y preservación de los
+          bienes comunes de la copropiedad, fomentando e impulsando al mismo
+          tiempo sus recursos logísticos. Cuento con conocimiento legal, buenas
+          habilidades de comunicación, aptitudes en temas de planificación y
+          organización, y sobre todo, manejo del dinero de manera responsable y
+          transparente apoyado a un programa contable reconocido en Colombia y
+          Sur América.
         </p>
 
         <div class="flex flex-col md:flex-row md:justify-around">
-          <div class="mb-2 flex flex-row items-center">
-            <span
-              class="font-flaticon flaticon-conversation text-[40px] text-primary-500"
-            ></span>
+          <div
+            class="mb-2 flex flex-row items-center group-[.scrollIsIn]:animate-slide-in-right"
+          >
+            <img class="size-24 mx-auto" src="/images/icons/contable2.svg" />
             <div
-              class="ml-3 font-inter text-sm font-semibold uppercase text-black/70"
+              class="ml-3 font-inter text-sm font-semibold uppercase text-black/70 dark:text-white/70"
             >
-              Expert team
+              conocimiento legal y contable
             </div>
           </div>
-          <div class="mb-2 flex flex-row items-center">
-            <span
-              class="font-flaticon flaticon-light-bulb text-[40px] text-primary-500"
-            ></span>
+
+          <div
+            class="mb-2 flex flex-row items-center group-[.scrollIsIn]:animate-slide-in-right group-[.scrollIsIn]:animate-delay-300"
+          >
+            <img
+              class="size-24 mx-auto"
+              src="/images/icons/organizacion2.svg"
+            />
             <div
-              class="ml-3 font-inter text-sm font-semibold uppercase text-black/70"
+              class="ml-3 font-inter text-sm font-semibold uppercase text-black/70 dark:text-white/70"
             >
-              Solution for business
+              planificación y organización
             </div>
           </div>
         </div>
 
         <a
           type="button"
-          class="text-white bg-primary-500 hover:bg-primary-600 focus:outline-none focus:ring-4 focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2 mt-4 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-          href="/"
+          class="text-white bg-primary-500 hover:transition hover:ease-in-out hover:scale-110 hover:rotate-6 hover:bg-primary-600 focus:outline-none focus:ring-4 focus:ring-primary-300 font-medium rounded-md text-sm px-5 py-2.5 text-center me-2 mb-2 mt-4 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+          href="https://wa.me/573223139467"
         >
-          Get in touch with us
+          Contactame
         </a>
       </div>
     </div>

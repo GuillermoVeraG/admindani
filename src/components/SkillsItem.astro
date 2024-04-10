@@ -1,0 +1,30 @@
+---
+interface skillProps {
+  name: string;
+  descriptions: string[];
+  icon: string;
+  delay: number;
+}
+const { icon, name, descriptions, delay } = Astro.props as skillProps;
+---
+
+<div
+  class=`w-full p-6 bg-white border-2 border-primary-200 dark:bg-secondary-800 dark:border-secondary-950 rounded-lg shadow text-center 
+  group-[.scrollIsIn]:animate-reveal`
+  style=`animation-delay: ${delay}ms`
+>
+  <img alt={icon} class="size-32 mx-auto" src={icon} />
+  <h5
+    class="mt-4 mb-4 text-xl text-primary-500 font-semibold leading-tight dark:text-white"
+  >
+    {name}
+  </h5>
+
+  {
+    descriptions.map((description) => (
+      <p class="text-gray-400 dark:text-white/80 font-medium text-base leading-normal mb-4 text-pretty">
+        {description}
+      </p>
+    ))
+  }
+</div>

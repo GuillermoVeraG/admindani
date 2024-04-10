@@ -14,16 +14,50 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" class="w-full bg-white">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="stylesheet" href="/styles/flaticon.css" />
     <title>{title}</title>
+    <script>
+      import Wiscroll from "wiscroll";
+
+      const sections = [
+        "#Yo",
+        "#Servicios",
+        "#Escogernos",
+        "#Logros",
+        "#Equipo",
+        "#Preguntas",
+        "#Precios",
+      ];
+      var sectionsAnimated: Array<string> = [];
+
+      const callbackInit = function () {};
+      const config = {
+        in: function (_: number, entry: any) {
+          if (!sectionsAnimated.includes(entry.target.id)) {
+            entry.target.classList.add("scrollIsIn");
+            sectionsAnimated.push(entry.target.id);
+          }
+        },
+        delay: 150, // throttle delay
+        fromIsBelowTo: true,
+      };
+
+      sections.forEach((value) => {
+        new Wiscroll(document.querySelector(value)).fromto(
+          "-30% top",
+          "80% bottom",
+          callbackInit,
+          config
+        );
+      });
+    </script>
   </head>
-  <body>
+  <body class="">
     <Menu />
     <slot />
   </body>
@@ -31,8 +65,7 @@ const { title, description } = Astro.props;
 <style is:global>
   html {
     font-family: "Inter", system-ui, sans-serif;
-    background: #fff;
-    background-size: 224px;
+    overflow-x: hidden;
   }
 
   #header-nav {
