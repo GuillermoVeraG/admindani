@@ -11,25 +11,25 @@ const chooses: Array<chooseUpProps> = [
     name: "Gestión Administrativa",
     description:
       "Administramos de manera eficiente, con alto sentido de responsabilidad y profesionalismo a través de un sistema contable de fácil acceso y con diferentes roles, que permite simplificar la comunicación con la administración y llevar registros.",
-    icon: "/images/icons/admin4.svg",
+    icon: `${import.meta.env.BASE_URL}/images/icons/admin4.svg`,
   },
   {
     name: "Gestión Contable",
     description:
       "Contamos con un Software integral para la Propiedad Horizontal que potencia la gestión con mayor calidad de servicio, transparencia y organización en el conjunto residencial, atendiendo cada requerimiento contable.",
-    icon: "/images/icons/contable1.svg",
+    icon: `${import.meta.env.BASE_URL}/images/icons/contable1.svg`,
   },
   {
     name: "Servicio Aseo",
     description:
       "Prestamos un servicio de personal de aseo general altamente capacitado que cuentan con sistemas avanzados para generar ambientes saludables y limpios.",
-    icon: "/images/icons/aseo2.svg",
+    icon: `${import.meta.env.BASE_URL}/images/icons/aseo2.svg`,
   },
   {
     name: "Servicio Mantenimiento",
     description:
       "Prestamos un servicio de personal de mantenimiento y reparación de daños menores o reparaciones mayores en zonas comunes, personal capacitado para trabajos en alturas, interiores y exteriores de fachadas.",
-    icon: "/images/icons/mantenimiento1.svg",
+    icon: `${import.meta.env.BASE_URL}/images/icons/mantenimiento1.svg`,
   },
 ];
 ---
@@ -61,7 +61,7 @@ const chooses: Array<chooseUpProps> = [
     <div class="flex flex-col md:grid md:grid-cols-2 gap-8">
       <div class="pt-2 lg:pt-10 lg:pl-10 md:-mt-10">
         <div
-          class="bg-[url('/images/about-3.webp')]
+          class="bg-[url('/admindani/images/about-3.webp')]
               h-full min-h-[350px] xs:max-h-[400px] md:h-full w-full
               bg-contain bg-no-repeat bg-center
               self-stretch items-center

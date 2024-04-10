@@ -11,19 +11,19 @@ const team: Array<teamProps> = [
     name: "Equipo Administrativo",
     description:
       "Contamos con un Software que simplifica la gestión y comunicaciones, permite llevar un control de mantenimientos, seguros, gestionar reservas de las zonas comunes, manejar actas y documentos de la copropiedad, citofonía virtual, asambleas, votaciones y PQRS.",
-    image: "/images/staff-1.webp",
+    image: `${import.meta.env.BASE_URL}/images/staff-1.webp`,
   },
   {
     name: "Equipo Contable",
     description:
       "Contamos con un programa contable desarrollado especialmente para Propiedades Horizontales, donde se podrán llevar asientos y reportes contables, balances de prueba, estados de situación financiera, estado de resultados, un control de movimientos de fondos y saldos por cuentas, entre muchas cosas más.",
-    image: "/images/staff-2.webp",
+    image: `${import.meta.env.BASE_URL}/images/staff-2.webp`,
   },
   {
     name: "Equipo de Mantenimiento",
     description:
       "Prestamos un servicio de personal de aseo y de mantenimiento y reparación responsable, seguro y altamente capacitado, para el funcionamiento de zonas comunes de redes eléctricas, hidráulicas, pintura, plomería, gas natural, cerrajería, impermeabilización de fachadas, trabajos en alturas, mantenimiento de jardines, piscinas, zonas verdes y más.",
-    image: "/images/staff-3.webp",
+    image: `${import.meta.env.BASE_URL}/images/staff-3.webp`,
   },
 ];
 ---
@@ -53,7 +53,10 @@ const team: Array<teamProps> = [
           altamente capacitado, responsable, honesto y siempre dispuesto a dar
           lo mejor.
         </p>
-        <img class="mt-12 size-38 mx-auto" src="/images/icons/team1.svg" />
+        <img
+          class="mt-12 size-38 mx-auto"
+          src={`${import.meta.env.BASE_URL}/images/icons/team1.svg`}
+        />
       </div>
       {
         team.map((teamItem, index) => (
