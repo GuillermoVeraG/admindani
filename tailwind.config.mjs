@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
+        bungee: ["Bungee", "sans-serif"],
       },
 
       colors: {
