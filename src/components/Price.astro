@@ -32,11 +32,12 @@ const prices: Array<priceProps> = [
       "Asesoria y asistencia contable",
       "Software contable y administrativo para P.H.",
       "Estados Financieros con firma contador público",
+      "Estricto control y cumplimiento en el manejo del presupuesto",
     ],
   },
   {
     name: "Limpieza",
-    price: "300",
+    price: "280",
     unidad: "Mensual",
     options: [
       "8 visitas (2 semanales de 4hr c/u)",
@@ -68,10 +69,10 @@ const prices: Array<priceProps> = [
       {
         prices.map(({ price, name, unidad, options }, index) => (
           <div
-            class={`w-full p-6 ${index % 2 != 0 ? "bg-gray-200/60" : "bg-white"} border border-gray-200 rounded-lg shadow text-center relative`}
+            class={`w-full p-6 ${index % 2 == 0 ? "bg-gray-200/60" : "bg-white"} border border-gray-200 rounded-lg shadow text-center relative`}
           >
             <div
-              class={`${index % 2 != 0 ? "" : "hidden"} uppercase absolute w-fit bg-primary-600 font-bungee tracking-widest text-white text-xs px-4 py-2 rounded-2xl -top-4 left-1/2 -translate-x-1/2`}
+              class={`${index % 2 != 0 ? "" : "hidden"} uppercase absolute w-fit bg-secondary-600 font-bold tracking-widest text-white text-xs px-4 py-2 rounded-2xl -top-4 left-1/2 -translate-x-1/2`}
             >
               recomendado
             </div>
