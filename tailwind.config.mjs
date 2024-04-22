@@ -80,9 +80,9 @@ export default {
       },
       backgroundImage: {
         "header-1": `url('/admindani/images/bg_1.webp')`,
-        "about-arriba": `url('/admindani/images/about-1.webp')`,
-        "about-abajo": `url('/admindani/images/about.webp')`,
-        "choose-up": `url('/admindani/images/about-3.webp')`,
+        "about-arriba": `url('/admindani/images/about-1-dani.webp')`,
+        "about-abajo": `url('/admindani/images/about-dani.webp')`,
+        "choose-up": `url('/admindani/images/about-3-dani.webp')`,
         question: `url('/admindani/images/about-2.webp')`,
       },
     },
