@@ -70,6 +70,15 @@ const { title, description } = Astro.props;
   </body>
 </html>
 <style is:global>
+  /* Register your custom font family and tell the browser where to find it. */
+  @font-face {
+    font-family: "StretchPro";
+    src: url("/admindani/fonts/StretchPro.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
   html {
     font-family: "Inter", system-ui, sans-serif;
     overflow-x: hidden;

@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
         bungee: ["Bungee", "sans-serif"],
+        stretchpro: ["StretchPro", "sans-serif"],
       },
 
       colors: {
