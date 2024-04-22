@@ -1,0 +1,146 @@
+---
+import TitleVertical from "@/components/TitleVertical.astro";
+---
+
+<section
+  class="w-full flex flex-col justify-between items-center mx-auto mt-28 mb-6"
+>
+  <div
+    class="bg-secondary-500/40 py-20 w-full max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-6xl"
+  >
+    <div
+      class="flex flex-col justify-center items-center text-center w-full mx-auto"
+    >
+      <TitleVertical
+        subtitlePrimary="¿Tienes alguna duda? "
+        subtitleSecondary="nosotros te respondemos"
+        title="contactanos"
+        desc="Estamos a tu disposición para atender tus diferentes dudas, por este medio, por email o por whatsapp."
+        subtitleBreak
+      />
+    </div>
+
+    <div
+      class="w-11/12 flex flex-col justify-center items-center gap-4 mx-auto mt-10"
+    >
+      <form id="formContact" class="w-full flex flex-col">
+        <div
+          class="w-full flex flex-col lg:flex-row lg:flex-wrap justify-between gap-4 pt-2"
+        >
+          <div
+            class="flex flex-col items-start w-full lg:max-w-[calc(50%-0.5rem)]"
+          >
+            <label
+              for="Customer-Name"
+              class="py-2 px-0 capitalize text-base font-light text-secondary-950 dark:text-secondary-50"
+              >nombre</label
+            >
+            <input
+              name="Customer-Name"
+              placeholder="Nombre"
+              id="Customer-Name"
+              type="text"
+              required
+              class="w-full min-h-16 bg-secondary-100 rounded flex justify-center items-center mx-auto align-middle px-4 py-2 text-sm text-secondary-950"
+            />
+          </div>
+
+          <div
+            class="flex flex-col items-start w-full lg:max-w-[calc(50%-0.5rem)]"
+          >
+            <label
+              for="Customer-LastName"
+              class="py-2 px-0 capitalize text-base font-light text-secondary-950 dark:text-secondary-50"
+              >apellido</label
+            >
+            <input
+              name="Customer-Name"
+              placeholder="Apellido"
+              id="Customer-Name"
+              type="text"
+              required
+              class="w-full min-h-16 bg-secondary-100 rounded flex justify-center items-center mx-auto align-middle px-4 py-2 text-sm text-secondary-950"
+            />
+          </div>
+        </div>
+
+        <div
+          class="w-full flex flex-col lg:flex-row lg:flex-wrap justify-between gap-4 pt-2"
+        >
+          <div
+            class="flex flex-col items-start w-full lg:max-w-[calc(50%-0.5rem)]"
+          >
+            <label
+              for="Customer-Email"
+              class="py-2 px-0 capitalize text-base font-light text-secondary-950 dark:text-secondary-50"
+              >email</label
+            >
+            <input
+              name="Customer-Email"
+              placeholder="Email"
+              id="Customer-Email"
+              type="email"
+              required
+              class="w-full min-h-16 bg-secondary-100 rounded flex justify-center items-center mx-auto align-middle px-4 py-2 text-sm text-secondary-950"
+            />
+          </div>
+          <div
+            class="flex flex-col items-start w-full lg:max-w-[calc(50%-0.5rem)]"
+          >
+            <label
+              for="Phone-Number"
+              class="py-2 px-0 capitalize text-base font-light text-secondary-950 dark:text-secondary-50"
+              >Celular</label
+            >
+            <input
+              name="Phone-Number"
+              placeholder="009 12345"
+              id="Phone-Number"
+              type="tel"
+              required
+              class="w-full min-h-16 bg-secondary-100 rounded flex justify-center items-center mx-auto align-middle px-4 py-2 text-sm text-secondary-950"
+            />
+          </div>
+        </div>
+
+        <div class="w-full flex flex-col items-start pt-2">
+          <label
+            for="Customer-Message"
+            class="py-2 px-0 capitalize text-base font-light text-secondary-950 dark:text-secondary-50"
+            >Información</label
+          >
+          <textarea
+            name="Customer-Message"
+            placeholder="Tu información"
+            id="Customer-Message"
+            maxlength="5000"
+            required
+            class="w-full min-h-36 bg-secondary-100 rounded flex justify-center items-center mx-auto align-middle px-4 py-2 text-sm text-secondary-950"
+          ></textarea>
+        </div>
+
+        <input
+          id="formButContact"
+          type="submit"
+          data-wait="procesando..."
+          value="Enviar"
+          class="capitalize flex justify-center items-center rounded-3xl pt-3 px-6 cursor-pointer text-secondary-50 dark:text-secondary-950/60 bg-secondary-900 dark:bg-primary-300 hover:text-secondary-50 hover:bg-secondary-900 hover:dark:text-secondary-50 hover:dark:bg-secondary-900 text-sm pb-3 mt-4 w-fit"
+        />
+      </form>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  import { sendEmail } from "@/utils/sendEmail";
+
+  const form = document.getElementById("formContact");
+  const sendBt = document.getElementById("formButContact");
+
+  sendBt?.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log(form);
+
+    sendEmail({ subject: "test agencia", body: "ajhsdkjas" });
+  });
+</script>

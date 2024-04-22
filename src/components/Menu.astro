@@ -1,16 +1,26 @@
 ---
-const menus: Array<string> = [
-  "Yo",
-  "Servicios",
-  "Escogernos",
-  "Logros",
-  "Equipo",
-  "Preguntas",
-  "Precios",
+interface menuLinks {
+  text: string;
+  id: string;
+}
+
+const menuItems: Array<menuLinks> = [
+  { text: "Home", id: `${import.meta.env.BASE_URL}/` },
+  { text: "Administradora", id: `${import.meta.env.BASE_URL}/administradora` },
+  { text: "Servicios", id: `${import.meta.env.BASE_URL}/servicios` },
+  //{text: "Logros", id: `${import.meta.env.BASE_URL}/`},
+  {
+    text: "Planes & Precios",
+    id: `${import.meta.env.BASE_URL}/planes-precios`,
+  },
+  { text: "Contactanos", id: `${import.meta.env.BASE_URL}/contactanos` },
 ];
 ---
 
-<nav id="header-nav" class="bg-primary-200/30 dark:bg-secondary-800/50 fixed top-0 left-0 right-0 z-50">
+<nav
+  id="header-nav"
+  class="bg-primary-200/30 dark:bg-secondary-800/50 fixed top-0 left-0 right-0 z-50"
+>
   <div
     class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2 md:px-6 md:py-2"
   >
@@ -18,14 +28,18 @@ const menus: Array<string> = [
       href={import.meta.env.BASE_URL}
       class="flex items-center space-x-3 rtl:space-x-reverse"
     >
-      <img alt="logo daniela ramirez principal" class="size-12 md:size-20 mx-auto" src={`${import.meta.env.BASE_URL}/images/icons/logo1.svg`} />
+      <img
+        alt="logo daniela ramirez principal"
+        class="size-12 lg:size-20 mx-auto"
+        src={`${import.meta.env.BASE_URL}/images/icons/logo1.svg`}
+      />
       <div class="flex flex-col">
         <span
-          class="font-bungee self-left text-sm md:text-base font-semibold whitespace-nowrap dark:text-white"
+          class="font-bungee self-left text-sm lg:text-base font-semibold whitespace-nowrap dark:text-white"
           >Daniela Ramirez</span
         >
         <span
-          class="self-left font-inter text-xs md:text-sm dark:text-white/50 text-black/50 font-semibold uppercase leading-[.20rem]"
+          class="self-left font-inter text-xs lg:text-sm dark:text-white/50 text-black/50 font-semibold uppercase leading-[.20rem]"
           >Administradora PH</span
         >
       </div>
@@ -39,7 +53,7 @@ const menus: Array<string> = [
         href="https://wa.me/573223139467"
         target="_blank"
         ><svg
-          class="size-6 md:size-8"
+          class="size-6 lg:size-8"
           viewBox="0 0 256 259"
           width="256"
           height="259"
@@ -56,7 +70,7 @@ const menus: Array<string> = [
         id="button-navbar-cta"
         data-collapse-toggle="navbar-cta"
         type="button"
-        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm dark:bg-secondary-800 dark:hover:bg-secondary-600 bg-primary-500 hover:bg-primary-700 text-white rounded-lg md:hidden"
+        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm dark:bg-secondary-800 dark:hover:bg-secondary-600 bg-primary-600 hover:bg-primary-700 text-white rounded-lg md:hidden"
         aria-controls="navbar-cta"
         aria-expanded="false"
         onclick="toggleMenu()"
@@ -83,15 +97,18 @@ const menus: Array<string> = [
       id="navbar-cta"
     >
       <ul
-        class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-white md:bg-transparent md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0"
+        class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-white md:bg-transparent md:space-x-3 lg:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0"
       >
         {
-          menus.map((menu, index) => {
-            if(index == 0){
-              return (<li>
-              <a
-                href=`#${menu}`
-                class="is_active block py-2 px-3 md:p-0 rounded 
+          menuItems.map(({ text, id }, index) => {
+            const isActive = Astro.url.pathname == id ? "active-menu" : "";
+
+            return (
+              <li>
+                <a
+                  href={id}
+                  class={`${isActive ? "is_active" : ""} block py-2 px-3 md:p-0 rounded 
+                  text-base md:text-sm lg:text-base 
                   text-gray-900
                   dark:text-gray-100
                   focus:text-white
@@ -103,44 +120,20 @@ const menus: Array<string> = [
                   md:hover:bg-transparent 
                   dark:md:hover:bg-transparent
                   md:hover:text-primary-700
-                  dark:md:hover:text-secondary-600"
-                aria-current="page"
-                onclick="toggleMenuItems(this)"
-              >
-                {menu}
-              </a>
-            </li>)
-            }else{
-              return (<li>
-              <a
-                href=`#${menu}`
-                class="block py-2 px-3 md:p-0 rounded 
-                  text-gray-900
-                  dark:text-gray-100
-                  focus:text-white
-                  focus:bg-primary-500
-                  md:focus:bg-transparent 
-                  md:focus:text-primary-700
-                  hover:bg-gray-100 
-                  dark:hover:bg-gray-700 
-                  md:hover:bg-transparent 
-                  dark:md:hover:bg-transparent
-                  md:hover:text-primary-700
-                  dark:md:hover:text-primary-300"
-                aria-current="page"
-                onclick="toggleMenuItems(this)"
-              >
-                {menu}
-              </a>
-            </li>)
-            }
+                  dark:md:hover:text-secondary-600`}
+                  aria-current="page"
+                  onclick="toggleMenuItems(this)"
+                >
+                  {text}
+                </a>
+              </li>
+            );
           })
-          }
-            
+        }
       </ul>
     </div>
   </div>
-  <script type="module">
+  <script is:inline type="module">
     const menuButton = document.querySelector("#button-navbar-cta");
     const panelMenu = document.querySelector("#navbar-cta");
     const menuItems = panelMenu.querySelectorAll("li>a");
@@ -153,7 +146,7 @@ const menus: Array<string> = [
     }
 
     function toggleMenuItems(currentItem) {
-      menuItems.forEach(item => {
+      menuItems.forEach((item) => {
         item.classList.remove("is_active");
       });
 
@@ -164,9 +157,9 @@ const menus: Array<string> = [
     window.toggleMenuItems = toggleMenuItems;
   </script>
   <style>
-  .is_active {
-    font-weight: 600;
-    color: #2563EB;
-  }
+    .is_active {
+      font-weight: 600;
+      color: #2563eb;
+    }
   </style>
 </nav>

@@ -1,25 +1,17 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import Header from "@/components/Header.astro";
 import About from "@/components/About.astro";
-import Team from "@/components/Team.astro";
-import Skills from "@/components/Skills.astro";
-import Question from "@/components/Question.astro";
-import Price from "@/components/Price.astro";
 import ChooseUs from "@/components/ChooseUs.astro";
-import Goal from "@/components/Goal.astro";
+import Skills from "@/components/Skills.astro";
 ---
 
 <Layout
   title="Daniela Ramirez - Administradora Propiedades Horizontales Bogotá"
   description="Descubre los diferentes servicios que ofrece Daniela Ramirez como Administración de Propiedades Horizontales en Bogotá, Colombia."
 >
-  <Header />
-  <main>
+  <main class="mt-28">
     <About />
-    <Skills />
     <ChooseUs />
-    <Goal />
-    <Price />
+    <Skills />
   </main>
 </Layout>
